@@ -1,15 +1,25 @@
 {
   "name": "project",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "license": "MIT",
   "dependencies": {
     "react": "16.10.2",
     "react-dom": "16.10.2"
   },
   "devDependencies": {
-    "webpack": "^2.0",
-    "babel-core": "^6.0",
+    "babel-core": "^4.7.16",
     "babel-loader": "^7.0",
     "babel-preset-env": "*",
-    "babel-preset-react": "*"
+    "babel-preset-react": "*",
+    "webpack": "^5.80.0"
   },
   "scripts": {
     "build": "webpack",

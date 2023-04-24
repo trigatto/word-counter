@@ -1,25 +1,26 @@
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
 module.exports = {
-  "output": {
-    "filename": "[name].pack.js"
+  entry: "./index.js",
+  output: {
+    path: __dirname + "/dist",
+    filename: "bundle.js",
   },
-  "module": {
-    "rules": [
+  module: {
+    rules: [
       {
-        "use": {
-          "loader": "babel-loader",
-          "options": {
-            "presets": [
-              "babel-preset-env",
-              "babel-preset-react"
-            ]
-          }
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
         },
-        "exclude": /node_modules/,
-        "test": /\.js$/
-      }
-    ]
+      },
+    ],
   },
-  "entry": {
-    "index": "./index"
-  }
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./index.html",
+      filename: "./index.html",
+    }),
+  ],
 };
